@@ -5,7 +5,7 @@ Example of using docker-compose to deploy a load-balanced web application
 
 ## The file docker-compose.yaml
 
-```
+```yaml
 $ cat docker-compose.yaml
 
 version: '3'
