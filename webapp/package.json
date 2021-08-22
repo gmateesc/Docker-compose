@@ -1,5 +1,5 @@
 {
-  "name": "dockerized-webaapp-load-balanced-with-nginx",
+  "name": "dockerized-webapp-load-balanced-with-nginx",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
