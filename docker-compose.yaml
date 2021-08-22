@@ -10,7 +10,7 @@ services:
     image: percona
     restart: always
     volumes:
-      - "./percona/setup.sql:/etc/mysql/init/setup.sql"
+      - ./percona/setup.sql:/etc/mysql/init/setup.sql
     ports:
       - "13306:3306"
     environment:
@@ -25,6 +25,8 @@ services:
       - percona_db
     ports:
       - "10000:10000"
+    volumes:
+      - ./webapp:/var/webapp/
     environment:
       <<: *common-variables
       MYSQL_HOST_IP: percona_db      
@@ -38,6 +40,8 @@ services:
       - percona_db
     ports:
       - "10001:10001"
+    volumes:
+      - ./webapp:/var/webapp/
     environment:
       <<: *common-variables
       MYSQL_HOST_IP: percona_db      
@@ -45,10 +49,11 @@ services:
       - SERVER_ID=2
       
   nginx:
+    image: nginx
+    restart: always    
     depends_on:
       - webapp1
       - webapp2
-    restart: always
     ports:
       - "18080:80"
     volumes:
