@@ -10,7 +10,7 @@ services:
     image: percona
     restart: always
     volumes:
-      - "./setup.sql:/docker-entrypoint-initdb.d/setup.sql"
+      - "./percona/setup.sql:/etc/mysql/init/setup.sql"
     ports:
       - "13306:3306"
     environment:
